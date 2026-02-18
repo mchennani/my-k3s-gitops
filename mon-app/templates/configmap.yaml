@@ -4,6 +4,7 @@ metadata:
   name: {{ include "mon-app.fullname" . }}-html
 data:
   index.html: |
+    <!DOCTYPE html>
     <html>
       <head>
         <meta charset="UTF-8">
