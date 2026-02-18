@@ -5,6 +5,9 @@ metadata:
 data:
   index.html: |
     <html>
+      <head>
+        <meta charset="UTF-8">
+      </head>  
       <body style="background-color: #d1e7dd; text-align: center; padding-top: 50px; font-family: sans-serif;">
         <h1>Félicitations mchennani ! </h1>
         <p>Ton site est propulsé par <b>K3s</b>, <b>Helm</b> et <b>ArgoCD</b>.</p>
