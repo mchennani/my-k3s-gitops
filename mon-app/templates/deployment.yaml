@@ -56,7 +56,9 @@ spec:
       volumes:
         - name: html-storage
           configMap:
-            name: {{ include "mon-app.fullname" . }}-html
+            #name: {{ include "mon-app.fullname" . }}-html
+            # On utilise une variable définie dans values.yaml
+            name: {{ .Values.htmlConfigMap | default (include "mon-app.fullname" .) }}
       # --------------------------------------
       {{- with .Values.nodeSelector }}
       nodeSelector:

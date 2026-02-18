@@ -1,0 +1,11 @@
+replicaCount: 1
+ingress:
+  enabled: true
+  className: "nginx"
+  hosts:
+    - host: blog.lab  # URL différente !
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+htmlConfigMap: cm-site-blog
+
