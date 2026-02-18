@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mon-app.fullname" . }}-html
+data:
+  index.html: |
+    <html>
+      <body style="background-color: #d1e7dd; text-align: center; padding-top: 50px; font-family: sans-serif;">
+        <h1>Félicitations mchennani ! </h1>
+        <p>Ton site est propulsé par <b>K3s</b>, <b>Helm</b> et <b>ArgoCD</b>.</p>
+        <p>Le GitOps, c'est magique.</p>
+      </body>
+    </html>

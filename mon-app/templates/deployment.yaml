@@ -47,6 +47,17 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          # --- AJOUT DU MONTAGE DE LA CONFIGMAP ---
+          volumeMounts:
+            - name: html-storage
+              mountPath: /usr/share/nginx/html/
+          # ----------------------------------------
+      # --- DÉFINITION DU VOLUME CONFIGMAP ---
+      volumes:
+        - name: html-storage
+          configMap:
+            name: {{ include "mon-app.fullname" . }}-html
+      # --------------------------------------
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
