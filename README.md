@@ -83,14 +83,15 @@ Ajouter l'IP du cluster dans votre fichier **/etc/hosts** (ou **C:\Windows\Syste
 
 #### Explication des Scripts et Fichiers
 
-| Fichier                     | Rôle                                                                                                                                            |
-|:--------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`install-complet.sh`**    | **Le lanceur automatique**. Il installe K3s, Helm, MetalLB, Ingress-Nginx et ArgoCD. Il configure aussi l'IP fixe et l'accès `http://argo.lab`. |
-| **`mon-app/` (Chart Helm)** | **Le moteur unique**. Contient les templates Kubernetes. C'est ce dossier qu'ArgoCD utilise pour créer les ressources sur le cluster.           |
-| **`values.yaml`**           | **Config Site Principal**. Définit 3 réplicas et utilise la ConfigMap `cm-site-principal`.                                                      |
-| **`values-blog.yaml`**      | **Surcharge pour le Blog**. Modifie la config pour n'avoir qu'un seul réplica et utiliser `cm-site-blog`.                                       |
+## Installation et Scripts
 
----
+Trois niveaux de scripts sont disponibles pour monter ce lab :
+
+| Fichier | Niveau | Description |
+| :--- | :--- | :--- |
+| install.sh | Base | Installe K3s, Helm, MetalLB, Nginx et ArgoCD. |
+| install-v2.sh | Intermédiaire | Ajoute la configuration automatique de l'IP (192.168.1.200). |
+| install-complet.sh | Expert | Recommandé. Configure tout, y compris l'accès http://argo.lab. |
 
 #### Détails du script `install-complet.sh`
 
